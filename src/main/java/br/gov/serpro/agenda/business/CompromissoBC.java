@@ -1,5 +1,8 @@
 package br.gov.serpro.agenda.business;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import br.gov.frameworkdemoiselle.lifecycle.Startup;
 import br.gov.frameworkdemoiselle.stereotype.BusinessController;
 import br.gov.frameworkdemoiselle.template.DelegateCrud;
@@ -15,22 +18,14 @@ public class CompromissoBC extends DelegateCrud<Compromisso, Long, CompromissoDA
 	@Startup
 	@Transactional
 	public void load() {
-		Compromisso compromisso;
-
-		compromisso = new Compromisso();
-		compromisso.setNomeCompromisso("comp1");
-		insert(compromisso);
-
-		compromisso = new Compromisso();
-		compromisso.setNomeCompromisso("comp2");
-		insert(compromisso);
-
-		compromisso = new Compromisso();
-		compromisso.setNomeCompromisso("comp3");
-		insert(compromisso);
-
-		compromisso = new Compromisso();
-		compromisso.setNomeCompromisso("comp4");
-		insert(compromisso);
+		if (findAll().isEmpty()) {
+			for (int i = 0; i < 15; i++) {
+				Compromisso compromisso = new Compromisso();
+				compromisso.setNomeCompromisso("comp" + i);
+				compromisso.setDataVencimento(new Date());
+				compromisso.setDataPagamento(new Date());
+				insert(compromisso);
+			}
+		}
 	}
 }

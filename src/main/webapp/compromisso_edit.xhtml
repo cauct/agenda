@@ -25,14 +25,21 @@
 
 			<p:fieldset legend="#{messages['compromisso.label']}" toggleable="true" toggleSpeed="500">
 				<h:panelGrid columns="3">
-					<h:outputLabel value="#{messages['compromisso.label.id']}: " for="id" styleClass="text-input" />
+					<h:outputLabel value="#{messages['compromisso.label.id']}: " for="id" />
 					<h:outputText id="id" value="#{compromissoEditMB.bean.id}" />
 					<p:message for="id" />
 
-					<h:outputLabel value="#{messages['compromisso.label.nomeCompromisso']}: " for="nomeCompromisso" styleClass="text-input" />
-					<h:inputText id="nomeCompromisso" value="#{compromissoEditMB.bean.nomeCompromisso}"
-						title="#{messages['compromisso.alt.nomeCompromisso']}" />
+					<h:outputLabel value="#{messages['compromisso.label.nomeCompromisso']}: " for="nomeCompromisso" />
+					<h:inputText id="nomeCompromisso" value="#{compromissoEditMB.bean.nomeCompromisso}" title="#{messages['compromisso.alt.nomeCompromisso']}" />
 					<p:message for="nomeCompromisso" />
+
+					<h:outputLabel value="#{messages['compromisso.label.dataVencimento']}: " for="dataVencimento" />
+					<p:calendar id="dataVencimento" value="#{compromissoEditMB.bean.dataVencimento}" title="#{messages['compromisso.alt.dataVencimento']}" />
+					<p:message for="dataVencimento" />
+
+					<h:outputLabel value="#{messages['compromisso.label.dataPagamento']}: " for="dataPagamento" />
+					<p:calendar id="dataPagamento" value="#{compromissoEditMB.bean.dataPagamento}" title="#{messages['compromisso.alt.dataPagamento']}" />
+					<p:message for="dataPagamento" />
 				</h:panelGrid>
 			</p:fieldset>
 		</h:form>

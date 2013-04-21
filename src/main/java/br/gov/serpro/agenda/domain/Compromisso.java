@@ -4,12 +4,14 @@ import static javax.persistence.GenerationType.SEQUENCE;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Compromisso implements Serializable {
@@ -23,30 +25,32 @@ public class Compromisso implements Serializable {
 	@Column
 	private String nomeCompromisso;
 
-//	@Column
-//	private Date dataVencimento;
-//
-//	@Column
-//	private Date dataPagamento;
-//
-//	@Column
-//	private BigDecimal valorCompromisso;
-//
-//	@Column
-//	private BigDecimal valorPago;
+	@Column
+	@Temporal(value = TemporalType.DATE)
+	private Date dataVencimento;
+
+	@Column
+	@Temporal(value = TemporalType.DATE)
+	private Date dataPagamento;
+
+	@Column
+	private BigDecimal valorCompromisso;
+
+	@Column
+	private BigDecimal valorPago;
 
 	public Compromisso() {
 		super();
 	}
 
-//	public Compromisso(String nomeCompromisso, Date dataVencimento, Date dataPagamento, BigDecimal valorCompromisso,
-//			BigDecimal valorPago) {
-//		this.setNomeCompromisso(nomeCompromisso);
-//		this.setdataVencimento(dataVencimento);
-//		this.setDataPagamento(dataPagamento);
-//		this.setValorCompromisso(valorCompromisso);
-//		this.setValorPago(valorPago);
-//	}
+	// public Compromisso(String nomeCompromisso, Date dataVencimento, Date dataPagamento, BigDecimal valorCompromisso,
+	// BigDecimal valorPago) {
+	// this.setNomeCompromisso(nomeCompromisso);
+	// this.setdataVencimento(dataVencimento);
+	// this.setDataPagamento(dataPagamento);
+	// this.setValorCompromisso(valorCompromisso);
+	// this.setValorPago(valorPago);
+	// }
 
 	public Long getId() {
 		return id;
@@ -64,42 +68,42 @@ public class Compromisso implements Serializable {
 		this.nomeCompromisso = nomeCompromisso;
 	}
 
-//	public Date getdataVencimento() {
-//		return dataVencimento;
-//	}
-//
-//	public void setdataVencimento(Date dataVencimento) {
-//		this.dataVencimento = dataVencimento;
-//	}
-//
-//	public Date getDataPagamento() {
-//		return dataPagamento;
-//	}
-//
-//	public void setDataPagamento(Date dataPagamento) {
-//		this.dataPagamento = dataPagamento;
-//	}
-//
-//	public BigDecimal getValorCompromisso() {
-//		return valorCompromisso;
-//	}
-//
-//	public void setValorCompromisso(BigDecimal valorCompromisso) {
-//		this.valorCompromisso = valorCompromisso;
-//	}
-//
-//	public BigDecimal getValorPago() {
-//		return valorPago;
-//	}
-//
-//	public void setValorPago(BigDecimal valorPago) {
-//		this.valorPago = valorPago;
-//	}
-//
-//	public boolean isAtrasado() {
-//		return false;
-//		// fazer logica se o compromisso está ou foi pago em atraso
-//
-//	}
+	public Date getDataVencimento() {
+		return dataVencimento;
+	}
+
+	public void setDataVencimento(Date dataVencimento) {
+		this.dataVencimento = dataVencimento;
+	}
+
+	public Date getDataPagamento() {
+		return dataPagamento;
+	}
+
+	public void setDataPagamento(Date dataPagamento) {
+		this.dataPagamento = dataPagamento;
+	}
+
+	public BigDecimal getValorCompromisso() {
+		return valorCompromisso;
+	}
+
+	public void setValorCompromisso(BigDecimal valorCompromisso) {
+		this.valorCompromisso = valorCompromisso;
+	}
+
+	public BigDecimal getValorPago() {
+		return valorPago;
+	}
+
+	public void setValorPago(BigDecimal valorPago) {
+		this.valorPago = valorPago;
+	}
+
+	public boolean isAtrasado() {
+		return false;
+		// fazer logica se o compromisso está ou foi pago em atraso
+
+	}
 
 }
