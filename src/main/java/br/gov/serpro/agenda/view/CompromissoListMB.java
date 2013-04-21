@@ -10,22 +10,22 @@ import br.gov.frameworkdemoiselle.annotation.PreviousView;
 import br.gov.frameworkdemoiselle.stereotype.ViewController;
 import br.gov.frameworkdemoiselle.template.AbstractListPageBean;
 import br.gov.frameworkdemoiselle.transaction.Transactional;
-import br.gov.serpro.agenda.business.AgendaBC;
+import br.gov.serpro.agenda.business.CompromissoBC;
 import br.gov.serpro.agenda.domain.Compromisso;
 
 @ViewController
-@NextView("/agenda_edit.xhtml")
-@PreviousView("/agenda_list.xhtml")
-public class AgendaListMB extends AbstractListPageBean<Compromisso, Long> {
+@NextView("/compromisso_edit.xhtml")
+@PreviousView("/compromisso_list.xhtml")
+public class CompromissoListMB extends AbstractListPageBean<Compromisso, Long> {
 
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private AgendaBC agendaBC;
+	private CompromissoBC compromissoBC;
 
 	@Override
 	protected List<Compromisso> handleResultList() {
-		return agendaBC.findAll();
+		return compromissoBC.findAll();
 	}
 
 	@Transactional
@@ -36,7 +36,7 @@ public class AgendaListMB extends AbstractListPageBean<Compromisso, Long> {
 			delete = getSelection().get(id);
 
 			if (delete) {
-				agendaBC.delete(id);
+				compromissoBC.delete(id);
 				iter.remove();
 			}
 		}

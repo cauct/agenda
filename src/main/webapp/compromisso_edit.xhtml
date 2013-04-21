@@ -6,15 +6,15 @@
 		<h:form>
 			<p:toolbar>
 				<p:toolbarGroup align="left">
-					<p:commandButton value="#{messages['button.save']}" action="#{agendaEditMB.insert}"
-						rendered="#{!agendaEditMB.updateMode}" ajax="false" />
-					<p:commandButton value="#{messages['button.save']}" action="#{agendaEditMB.update}"
-						rendered="#{agendaEditMB.updateMode}" ajax="false" />
+					<p:commandButton value="#{messages['button.save']}" action="#{compromissoEditMB.insert}"
+						rendered="#{!compromissoEditMB.updateMode}" ajax="false" />
+					<p:commandButton value="#{messages['button.save']}" action="#{compromissoEditMB.update}"
+						rendered="#{compromissoEditMB.updateMode}" ajax="false" />
 					<p:commandButton value="#{messages['button.delete']}" onclick="confirmation.show()"
-						rendered="#{agendaEditMB.updateMode}" type="button" immediate="true" ajax="false" />
+						rendered="#{compromissoEditMB.updateMode}" type="button" immediate="true" ajax="false" />
 					<p:confirmDialog message="#{messages['label.confirm.delete']}" showEffect="bounce" hideEffect="explode"
 						header="#{messages['label.dialog.delete']}" severity="alert" widgetVar="confirmation">
-						<h:commandButton value="#{messages['button.dialog.yes']}" action="#{agendaEditMB.delete}" immediate="true"
+						<h:commandButton value="#{messages['button.dialog.yes']}" action="#{compromissoEditMB.delete}" immediate="true"
 							ajax="false" />
 						<h:commandButton value="#{messages['button.dialog.no']}" onclick="confirmation.hide()" type="button" />
 					</p:confirmDialog>
@@ -26,11 +26,11 @@
 			<p:fieldset legend="#{messages['compromisso.label']}" toggleable="true" toggleSpeed="500">
 				<h:panelGrid columns="3">
 					<h:outputLabel value="#{messages['compromisso.label.id']}: " for="id" styleClass="text-input" />
-					<h:outputText id="id" value="#{agendaEditMB.bean.id}" />
+					<h:outputText id="id" value="#{compromissoEditMB.bean.id}" />
 					<p:message for="id" />
 
 					<h:outputLabel value="#{messages['compromisso.label.nomeCompromisso']}: " for="nomeCompromisso" styleClass="text-input" />
-					<h:inputText id="nomeCompromisso" value="#{agendaEditMB.bean.nomeCompromisso}"
+					<h:inputText id="nomeCompromisso" value="#{compromissoEditMB.bean.nomeCompromisso}"
 						title="#{messages['compromisso.alt.nomeCompromisso']}" />
 					<p:message for="nomeCompromisso" />
 				</h:panelGrid>

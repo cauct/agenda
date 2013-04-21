@@ -6,17 +6,17 @@ import br.gov.frameworkdemoiselle.annotation.PreviousView;
 import br.gov.frameworkdemoiselle.stereotype.ViewController;
 import br.gov.frameworkdemoiselle.template.AbstractEditPageBean;
 import br.gov.frameworkdemoiselle.transaction.Transactional;
-import br.gov.serpro.agenda.business.AgendaBC;
+import br.gov.serpro.agenda.business.CompromissoBC;
 import br.gov.serpro.agenda.domain.Compromisso;
 
 @ViewController
-@PreviousView("/agenda_list.xhtml")
-public class AgendaEditMB extends AbstractEditPageBean<Compromisso, Long> {
+@PreviousView("/compromisso_list.xhtml")
+public class CompromissoEditMB extends AbstractEditPageBean<Compromisso, Long> {
 
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private AgendaBC bc;
+	private CompromissoBC bc;
 
 	@Override
 	@Transactional

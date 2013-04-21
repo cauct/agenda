@@ -5,10 +5,10 @@ import br.gov.frameworkdemoiselle.stereotype.BusinessController;
 import br.gov.frameworkdemoiselle.template.DelegateCrud;
 import br.gov.frameworkdemoiselle.transaction.Transactional;
 import br.gov.serpro.agenda.domain.Compromisso;
-import br.gov.serpro.agenda.persistence.AgendaDAO;
+import br.gov.serpro.agenda.persistence.CompromissoDAO;
 
 @BusinessController
-public class AgendaBC extends DelegateCrud<Compromisso, Long, AgendaDAO> {
+public class CompromissoBC extends DelegateCrud<Compromisso, Long, CompromissoDAO> {
 
 	private static final long serialVersionUID = 1L;
 

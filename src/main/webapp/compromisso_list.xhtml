@@ -6,8 +6,8 @@
 		<h:form>
 			<p:toolbar>
 				<p:toolbarGroup align="left">
-					<p:commandButton title="#{messages['button.new']}" icon="ui-icon-document" action="#{agendaListMB.getNextView}"
-						actionListener="#{agendaListMB.clear}" ajax="false" />
+					<p:commandButton title="#{messages['button.new']}" icon="ui-icon-document" action="#{compromissoListMB.getNextView}"
+						actionListener="#{compromissoListMB.clear}" ajax="false" />
 
 					<p:commandButton title="#{messages['button.delete']}" icon="ui-icon-trash" onclick="confirmation.show()"
 						type="button" immediate="true" ajax="false" />
@@ -15,17 +15,17 @@
 					<p:confirmDialog message="#{messages['label.confirm.delete']}" showEffect="bounce" hideEffect="explode"
 						header="#{messages['label.dialog.alert']}!" severity="alert" widgetVar="confirmation">
 
-						<h:commandButton value="#{messages['button.dialog.yes']}" action="#{agendaListMB.deleteSelection}"
-							actionListener="#{agendaListMB.clear}" />
+						<h:commandButton value="#{messages['button.dialog.yes']}" action="#{compromissoListMB.deleteSelection}"
+							actionListener="#{compromissoListMB.clear}" />
 						<h:commandButton value="#{messages['button.dialog.no']}" onclick="confirmation.hide()" type="button" />
 					</p:confirmDialog>
 				</p:toolbarGroup>
 			</p:toolbar>
 
-			<p:dataTable value="#{agendaListMB.resultList}" var="compromisso">
+			<p:dataTable value="#{compromissoListMB.resultList}" var="compromisso">
 				<f:facet name="header">#{messages['compromisso.list.table.title']}</f:facet>
 				<p:column style="width:5%;">
-					<h:selectBooleanCheckbox value="#{agendaListMB.selection[compromisso.id]}" />
+					<h:selectBooleanCheckbox value="#{compromissoListMB.selection[compromisso.id]}" />
 				</p:column>
 				<p:column style="width:5%;" sortBy="#{compromisso.id}">
 					<f:facet name="header">#{messages['compromisso.label.id']}</f:facet>
@@ -33,7 +33,7 @@
 				</p:column>
 				<p:column sortBy="#{compromisso.nomeCompromisso}">
 					<f:facet name="header">#{messages['compromisso.label.nomeCompromisso']}</f:facet>
-					<h:commandLink action="#{agendaListMB.getNextView}" actionListener="#{agendaListMB.clear}">
+					<h:commandLink action="#{compromissoListMB.getNextView}" actionListener="#{compromissoListMB.clear}">
 						<h:outputText value="#{compromisso.nomeCompromisso}" />
 						<f:param name="id" value="#{compromisso.id}" />
 					</h:commandLink>

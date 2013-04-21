@@ -9,8 +9,10 @@
 				<p:menuitem value="#{messages['menu.menuitem.list']}" url="/bookmark_list.jsf" />
 			</p:submenu>
 			
-			<p:submenu label="Agenda">
-				<p:menuitem value="Listagem" url="/agenda_list.jsf" />
+			<p:submenu label="#{messages['menu.compromisso']}">
+				<p:menuitem value="#{messages['menu.menuitem.new']}" url="/compromisso_edit.jsf" />
+				<p:menuitem value="#{messages['menu.menuitem.list']}" url="/compromisso_list.jsf" />
+
 			</p:submenu>
 
 			<p:menuitem value="#{messages['menu.menuitem.quit']}" url="http://www.frameworkdemoiselle.gov.br/"

@@ -5,7 +5,7 @@ import br.gov.frameworkdemoiselle.template.JPACrud;
 import br.gov.serpro.agenda.domain.Compromisso;
 
 @PersistenceController
-public class AgendaDAO extends JPACrud<Compromisso, Long> {
+public class CompromissoDAO extends JPACrud<Compromisso, Long> {
 
 	private static final long serialVersionUID = 1L;
 }
