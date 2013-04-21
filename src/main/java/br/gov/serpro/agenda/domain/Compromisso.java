@@ -37,6 +37,7 @@ public class Compromisso implements Serializable {
 	private Date dataPagamento;
 
 	@Column
+	@NotNull
 	private BigDecimal valorCompromisso;
 
 	@Column

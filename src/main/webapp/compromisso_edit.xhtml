@@ -33,6 +33,10 @@
 					<h:inputText id="nomeCompromisso" value="#{compromissoEditMB.bean.nomeCompromisso}" title="#{messages['compromisso.alt.nomeCompromisso']}" />
 					<p:message for="nomeCompromisso" />
 
+					<h:outputLabel value="#{messages['compromisso.label.valorCompromisso']}: " for="valorCompromisso" />
+					<h:inputText id="valorCompromisso" value="#{compromissoEditMB.bean.valorCompromisso}" title="#{messages['compromisso.alt.valorCompromisso']}" />
+					<p:message for="valorCompromisso" />
+
 					<h:outputLabel value="#{messages['compromisso.label.dataVencimento']}: " for="dataVencimento" />
 					<p:calendar id="dataVencimento" value="#{compromissoEditMB.bean.dataVencimento}" title="#{messages['compromisso.alt.dataVencimento']}" />
 					<p:message for="dataVencimento" />
