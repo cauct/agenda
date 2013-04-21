@@ -40,6 +40,10 @@
 					<h:outputLabel value="#{messages['compromisso.label.dataPagamento']}: " for="dataPagamento" />
 					<p:calendar id="dataPagamento" value="#{compromissoEditMB.bean.dataPagamento}" title="#{messages['compromisso.alt.dataPagamento']}" />
 					<p:message for="dataPagamento" />
+					
+					<h:outputLabel value="#{messages['compromisso.label.atrasado']}: " for="atrasado" />
+					<h:outputLabel id="atrasado" value="#{compromissoEditMB.bean.atrasado ? messages['compromisso.value.atrasado.sim'] : messages['compromisso.value.atrasado.nao']}" title="#{messages['compromisso.alt.atrasado']}" />
+					<p:message for="atrasado" />
 				</h:panelGrid>
 			</p:fieldset>
 		</h:form>

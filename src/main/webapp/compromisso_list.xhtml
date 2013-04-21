@@ -51,6 +51,10 @@
 						<f:convertDateTime type="date" pattern="dd-MM-yyyy"/>
 					</h:outputText>
 				</p:column>
+				<p:column sortBy="#{compromisso.atrasado}">
+					<f:facet name="header">#{messages['compromisso.label.atrasado']}</f:facet>
+					<h:outputText value="#{compromisso.atrasado ? messages['compromisso.value.atrasado.sim'] : messages['compromisso.value.atrasado.nao']}" />
+				</p:column>
 			</p:dataTable>
 		</h:form>
 	</ui:define>

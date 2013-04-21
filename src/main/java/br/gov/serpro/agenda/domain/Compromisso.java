@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Compromisso implements Serializable {
@@ -23,9 +24,11 @@ public class Compromisso implements Serializable {
 	private Long id;
 
 	@Column
+	@NotNull
 	private String nomeCompromisso;
 
 	@Column
+	@NotNull
 	@Temporal(value = TemporalType.DATE)
 	private Date dataVencimento;
 
@@ -51,6 +54,18 @@ public class Compromisso implements Serializable {
 	// this.setValorCompromisso(valorCompromisso);
 	// this.setValorPago(valorPago);
 	// }
+
+	public boolean isAtrasado() {
+		if (isPago()) {
+			return this.dataPagamento.compareTo(this.dataVencimento) > 0;
+		} else {
+			return new Date().compareTo(this.dataVencimento) > 0;
+		}
+	}
+
+	public boolean isPago() {
+		return this.dataPagamento != null;
+	}
 
 	public Long getId() {
 		return id;
@@ -99,11 +114,4 @@ public class Compromisso implements Serializable {
 	public void setValorPago(BigDecimal valorPago) {
 		this.valorPago = valorPago;
 	}
-
-	public boolean isAtrasado() {
-		return false;
-		// fazer logica se o compromisso está ou foi pago em atraso
-
-	}
-
 }
