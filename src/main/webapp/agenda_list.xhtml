@@ -23,16 +23,16 @@
 			</p:toolbar>
 
 			<p:dataTable value="#{agendaListMB.resultList}" var="compromisso">
-				<f:facet name="header">#{messages['bookmark.list.table.title']}</f:facet>
+				<f:facet name="header">#{messages['compromisso.list.table.title']}</f:facet>
 				<p:column style="width:5%;">
 					<h:selectBooleanCheckbox value="#{agendaListMB.selection[compromisso.id]}" />
 				</p:column>
 				<p:column style="width:5%;" sortBy="#{compromisso.id}">
-					<f:facet name="header">#{messages['bookmark.label.id']}</f:facet>
+					<f:facet name="header">#{messages['compromisso.label.id']}</f:facet>
 					<h:outputText value="#{compromisso.id}" />
 				</p:column>
 				<p:column sortBy="#{compromisso.nomeCompromisso}">
-					<f:facet name="header">#{messages['bookmark.label.description']}</f:facet>
+					<f:facet name="header">#{messages['compromisso.label.nomeCompromisso']}</f:facet>
 					<h:commandLink action="#{agendaListMB.getNextView}" actionListener="#{agendaListMB.clear}">
 						<h:outputText value="#{compromisso.nomeCompromisso}" />
 						<f:param name="id" value="#{compromisso.id}" />

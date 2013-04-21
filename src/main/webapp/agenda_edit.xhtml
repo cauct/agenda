@@ -3,6 +3,38 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/main.xhtml">
 
 	<ui:define name="body">
-		aqui
+		<h:form>
+			<p:toolbar>
+				<p:toolbarGroup align="left">
+					<p:commandButton value="#{messages['button.save']}" action="#{agendaEditMB.insert}"
+						rendered="#{!agendaEditMB.updateMode}" ajax="false" />
+					<p:commandButton value="#{messages['button.save']}" action="#{agendaEditMB.update}"
+						rendered="#{agendaEditMB.updateMode}" ajax="false" />
+					<p:commandButton value="#{messages['button.delete']}" onclick="confirmation.show()"
+						rendered="#{agendaEditMB.updateMode}" type="button" immediate="true" ajax="false" />
+					<p:confirmDialog message="#{messages['label.confirm.delete']}" showEffect="bounce" hideEffect="explode"
+						header="#{messages['label.dialog.delete']}" severity="alert" widgetVar="confirmation">
+						<h:commandButton value="#{messages['button.dialog.yes']}" action="#{agendaEditMB.delete}" immediate="true"
+							ajax="false" />
+						<h:commandButton value="#{messages['button.dialog.no']}" onclick="confirmation.hide()" type="button" />
+					</p:confirmDialog>
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<br />
+
+			<p:fieldset legend="#{messages['compromisso.label']}" toggleable="true" toggleSpeed="500">
+				<h:panelGrid columns="3">
+					<h:outputLabel value="#{messages['compromisso.label.id']}: " for="id" styleClass="text-input" />
+					<h:outputText id="id" value="#{agendaEditMB.bean.id}" />
+					<p:message for="id" />
+
+					<h:outputLabel value="#{messages['compromisso.label.nomeCompromisso']}: " for="nomeCompromisso" styleClass="text-input" />
+					<h:inputText id="nomeCompromisso" value="#{agendaEditMB.bean.nomeCompromisso}"
+						title="#{messages['compromisso.alt.nomeCompromisso']}" />
+					<p:message for="nomeCompromisso" />
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
 	</ui:define>
 </ui:composition>
