@@ -9,6 +9,7 @@
 		<non-jta-data-source>java:jboss/datasources/ExampleDS</non-jta-data-source>
 
 		<class>br.gov.serpro.agenda.domain.Bookmark</class>
+		<class>br.gov.serpro.agenda.domain.Compromisso</class>
 
 		<properties>
 			<property name="hibernate.show_sql" value="true" />
