@@ -23,7 +23,7 @@ public class Compromisso implements Serializable {
 	@GeneratedValue(strategy = SEQUENCE)
 	private Long id;
 
-	@Column
+	@Column(unique = true)
 	@NotNull
 	private String nomeCompromisso;
 

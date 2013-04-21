@@ -7,6 +7,7 @@ import br.gov.frameworkdemoiselle.stereotype.BusinessController;
 import br.gov.frameworkdemoiselle.template.DelegateCrud;
 import br.gov.frameworkdemoiselle.transaction.Transactional;
 import br.gov.serpro.agenda.domain.Compromisso;
+import br.gov.serpro.agenda.exception.CompromissoDuplicadoException;
 import br.gov.serpro.agenda.persistence.CompromissoDAO;
 
 @BusinessController
@@ -14,6 +15,26 @@ public class CompromissoBC extends DelegateCrud<Compromisso, Long, CompromissoDA
 
 	private static final long serialVersionUID = 1L;
 
+	@Override
+	public void insert(Compromisso compromisso) {
+		if (getDelegate().findByNome(compromisso.getNomeCompromisso()) != null) {
+			throw new CompromissoDuplicadoException();
+		}
+
+		super.insert(compromisso);
+	}
+	
+	@Override
+	public void update(Compromisso compromisso) {
+		Compromisso persistido = getDelegate().findByNome(compromisso.getNomeCompromisso());
+		
+		if (!persistido.getId().equals(compromisso.getId())) {
+			throw new CompromissoDuplicadoException();
+		}
+		
+		super.update(compromisso);
+	}
+	
 	@Startup
 	@Transactional
 	public void load() {
