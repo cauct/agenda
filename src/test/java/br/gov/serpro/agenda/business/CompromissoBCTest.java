@@ -1,5 +1,4 @@
 package br.gov.serpro.agenda.business;
-//package br.gov.serpro.agenda.business;
 //
 //import static org.junit.Assert.assertEquals;
 //import static org.junit.Assert.assertNotNull;
