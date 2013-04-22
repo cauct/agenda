@@ -90,6 +90,8 @@ public class CompromissoBC extends DelegateCrud<Compromisso, Long, CompromissoDA
 			compromissoAVencer.setDataVencimento(calendar.getTime());
 			insert(compromissoAVencer);
 			
+					
+			
 			
 		}
 	}

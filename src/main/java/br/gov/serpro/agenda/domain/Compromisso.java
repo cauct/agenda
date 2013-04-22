@@ -47,14 +47,15 @@ public class Compromisso implements Serializable {
 		super();
 	}
 
-	// public Compromisso(String nomeCompromisso, Date dataVencimento, Date dataPagamento, BigDecimal valorCompromisso,
-	// BigDecimal valorPago) {
-	// this.setNomeCompromisso(nomeCompromisso);
-	// this.setdataVencimento(dataVencimento);
-	// this.setDataPagamento(dataPagamento);
-	// this.setValorCompromisso(valorCompromisso);
-	// this.setValorPago(valorPago);
-	// }
+ /*   public Compromisso(String nomeCompromisso, Date dataVencimento, Date dataPagamento, BigDecimal valorCompromisso,
+	 BigDecimal valorPago) 
+    {
+	 this.setNomeCompromisso(nomeCompromisso);
+	 this.setDataVencimento(dataVencimento);
+	 this.setDataPagamento(dataPagamento);
+	 this.setValorCompromisso(valorCompromisso);
+	 this.setValorPago(valorPago);
+	 }*/
 
 	public boolean isAtrasado() {
 		if (isPago()) {
