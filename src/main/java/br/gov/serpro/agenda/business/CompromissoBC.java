@@ -1,7 +1,9 @@
 package br.gov.serpro.agenda.business;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.inject.Inject;
 
@@ -56,7 +58,7 @@ public class CompromissoBC extends DelegateCrud<Compromisso, Long, CompromissoDA
 	@Transactional
 	public void load() {
 		if (findAll().isEmpty()) {
-			Calendar calendar = Calendar.getInstance();
+			/*Calendar calendar = Calendar.getInstance();
 
 			Compromisso compromissoOk = new Compromisso();
 			compromissoOk.setNomeCompromisso("Compromisso pago no prazo");
@@ -89,9 +91,31 @@ public class CompromissoBC extends DelegateCrud<Compromisso, Long, CompromissoDA
 			calendar.set(2020, 0, 1);
 			compromissoAVencer.setDataVencimento(calendar.getTime());
 			insert(compromissoAVencer);
+			*/
+		
 			
-					
+			SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
 			
+			Date d1 = null;
+			Date d2 = null;
+			try {
+				d1 = data.parse("22/01/2012");
+				d2= data.parse("02/01/2013");
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+			
+		/*	GregorianCalendar calendar = new GregorianCalendar();  
+			Date data = calendar.getTime();  
+			  
+			// adiciona 1000 milisegundos, vezes 60 (um minuto), vezes 60 (uma hora), vezes 1  
+			data.setTime(data.getTime() + 1 * 60 * 60 * 1000);  */
+						
+			
+			insert(new Compromisso("compromisso 1",d1,d2,new BigDecimal(50.00), new BigDecimal(15.00)));	
+			insert(new Compromisso("compromisso 2",d2,d1,new BigDecimal(50.00), new BigDecimal(15.00)));
 			
 		}
 	}

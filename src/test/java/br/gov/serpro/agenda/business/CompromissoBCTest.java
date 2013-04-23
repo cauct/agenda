@@ -51,7 +51,7 @@ public class CompromissoBCTest {
 //	
 //	@Test
 //	public void testInsert() {
-//		Compromisso compromisso = new Compromisso("Demoiselle Portal", "http://www.frameworkdemoiselle.gov.br");
+//		Compromisso compromisso = new Compromisso();
 //		compromissoBC.insert(compromisso);
 //		List<compromisso> listacompromissos = compromissoBC.findAll();
 //		assertNotNull(listacompromissos);
