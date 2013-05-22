@@ -3,6 +3,7 @@ package br.gov.serpro.agenda.business;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.inject.Inject;
@@ -58,14 +59,15 @@ public class CompromissoBC extends DelegateCrud<Compromisso, Long, CompromissoDA
 	@Transactional
 	public void load() {
 		if (findAll().isEmpty()) {
-			/*Calendar calendar = Calendar.getInstance();
+			Calendar calendar = Calendar.getInstance();
 
 			Compromisso compromissoOk = new Compromisso();
 			compromissoOk.setNomeCompromisso("Compromisso pago no prazo");
 			compromissoOk.setValorCompromisso(new BigDecimal(100.00));
-			calendar.set(2013, 0, 10);
+			calendar.set(2013, 5, 10); //junho
 			compromissoOk.setDataVencimento(calendar.getTime());
-			calendar.set(2013, 0, 9);
+			calendar.set(2013, 5, 9);
+			
 			compromissoOk.setDataPagamento(calendar.getTime());
 			insert(compromissoOk);
 
@@ -81,30 +83,30 @@ public class CompromissoBC extends DelegateCrud<Compromisso, Long, CompromissoDA
 			Compromisso compromissoEsquecido = new Compromisso();
 			compromissoEsquecido.setNomeCompromisso("Esqueci de pagar");
 			compromissoEsquecido.setValorCompromisso(new BigDecimal(16.00));
-			calendar.set(2013, 0, 2);
+			calendar.set(2013, 4, 2);
 			compromissoEsquecido.setDataVencimento(calendar.getTime());
 			insert(compromissoEsquecido);
 
 			Compromisso compromissoAVencer = new Compromisso();
 			compromissoAVencer.setNomeCompromisso("Compromisso à vencer");
 			compromissoAVencer.setValorCompromisso(new BigDecimal(99.99));
-			calendar.set(2020, 0, 1);
+			calendar.set(2020, 1, 1);
 			compromissoAVencer.setDataVencimento(calendar.getTime());
 			insert(compromissoAVencer);
-			*/
-		
+			
 			
 			SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
 			
-			Date d1 = null;
-			Date d2 = null;
+			Date vencimento = null;
+			Date pagamento = null;
 			try {
-				d1 = data.parse("22/01/2012");
-				d2= data.parse("02/01/2013");
+				vencimento = data.parse("22/01/2012");
+				pagamento= data.parse("23/01/2012");
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			insert(new Compromisso("compromisso testando passando parametros",vencimento,pagamento,new BigDecimal(50.00), new BigDecimal(15.00)));
 		
 			
 		/*	GregorianCalendar calendar = new GregorianCalendar();  
@@ -112,10 +114,10 @@ public class CompromissoBC extends DelegateCrud<Compromisso, Long, CompromissoDA
 			  
 			// adiciona 1000 milisegundos, vezes 60 (um minuto), vezes 60 (uma hora), vezes 1  
 			data.setTime(data.getTime() + 1 * 60 * 60 * 1000);  */
-						
+				/*		
 			
 			insert(new Compromisso("compromisso 1",d1,d2,new BigDecimal(50.00), new BigDecimal(15.00)));	
-			insert(new Compromisso("compromisso 2",d2,d1,new BigDecimal(50.00), new BigDecimal(15.00)));
+			insert(new Compromisso("compromisso 2",d2,d1,new BigDecimal(50.00), new BigDecimal(15.00)));*/
 			
 		}
 	}
