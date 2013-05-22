@@ -51,7 +51,8 @@ public class CompromissoBC extends DelegateCrud<Compromisso, Long, CompromissoDA
 
 	private void validaValor(Compromisso compromisso) {
 		if (compromisso.getValorCompromisso().doubleValue() <= config.getValorMinimo()) {
-			throw new ValorInvalidoException(config.getValorMinimo());
+			throw new ValorInvalidoException(config.getValorMinimo());			
+			
 		}
 	}
 	

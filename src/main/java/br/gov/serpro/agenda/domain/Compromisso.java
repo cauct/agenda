@@ -47,8 +47,7 @@ public class Compromisso implements Serializable {
 		
 	}
 
-    public Compromisso(String nomeCompromisso, Date dataVencimento, Date dataPagamento, BigDecimal valorCompromisso,
-	 BigDecimal valorPago) 
+    public Compromisso(String nomeCompromisso, Date dataVencimento, Date dataPagamento, BigDecimal valorCompromisso,BigDecimal valorPago) 
     {
     super();
 	 this.setNomeCompromisso(nomeCompromisso);
@@ -59,10 +58,13 @@ public class Compromisso implements Serializable {
 	 }
 
 	public boolean isAtrasado() {
-		if (isPago()) {
-			return this.dataPagamento.compareTo(this.dataVencimento) > 0;
+		if (isPago()) {		
+			return this.dataPagamento.compareTo(this.dataVencimento) > 0;		
+			//se a data de pagamento é maior a data de vencimento - atrasado
+			
 		} else {
 			return new Date().compareTo(this.dataVencimento) > 0;
+			//se a data de hoje é maior que a data de vencimento - não atrasado
 		}
 	}
 
